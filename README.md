@@ -36,7 +36,7 @@ Airflow UI is accassible at _localhost:8080_ by web browser.
 
 ### 2.3 Create PostgresSQL connection.
 
-- Create connection with the database. I have used Dbeaver to do so. When connection from Airflow remenber to do it from docker (host): host.docker.internal 
+- Create connection with the database. I have used Dbeaver to do so. When connection from Airflow remember to do it from docker (host): host.docker.internal 
 
 Saved models can be found either in the _models_ subfolder within the project or by:
 
