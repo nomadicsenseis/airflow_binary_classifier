@@ -15,16 +15,17 @@ def feature_selection():
   logreg = LogisticRegressionCV(penalty='l1', solver='saga', cv=5)
   logreg.fit(x_train, y_train)
   
-  k=10
+  k=50
   # get the absolute values of the coefficients
   coef_abs = np.abs(logreg.coef_)
-  # flatten the array and sort in descending order
-  coef_sorted = sorted(coef_abs.flatten(), reverse=True) 
   #Get the top_k indexes
   topk_indices = np.argpartition(coef_abs.flatten(), -k)[-k:]
   # get the corresponding feature names
   feature_names = list(x_train.columns)
   topk_features = [feature_names[i] for i in topk_indices]
+  df_topk_features = pd.DataFrame(topk_features, columns=['selected_features'])
+  df_topk_features.name='selected_features'
+  save_files([df_topk_features])
 
   x_train=x_train[topk_features]
   x_test=x_test[topk_features]

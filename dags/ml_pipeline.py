@@ -14,7 +14,9 @@ from utils.track_experiments_info import track_experiments_info
 from utils.fit_best_model import fit_best_model
 from utils.save_batch_data import save_batch_data
 from utils.save_clean_batch_data import save_clean_batch_data
-
+from utils.select_features import select_features
+from utils.make_predictions import make_predictions
+from utils.eval_predictions import eval_predictions
 
 default_args= {
     'owner': 'Diego Rivera',
@@ -78,10 +80,10 @@ with DAG(
         )
 
         # task: 3.3
-        saving_clean_batch_data = PythonOperator(
-            task_id='saving_clean_batch_data',
-            python_callable=save_clean_batch_data
-        )
+        #saving_clean_batch_data = PythonOperator(
+         #   task_id='saving_clean_batch_data',
+          #  python_callable=save_clean_batch_data
+        #)
 
     # task: 4
     feature_selection = PythonOperator(
@@ -111,6 +113,23 @@ with DAG(
         fitting_best_model = PythonOperator(
             task_id='fitting_best_model',
             python_callable=fit_best_model
-        )    
+        )   
 
-    creating_storage_structures >> fetching_data >> preparing_data >> feature_selection >> hyperparam_tuning >> after_optuna
+    #task 7
+    selecting_features = PythonOperator(
+        task_id='selecting_features',
+        python_callable=select_features
+    )
+    #task 8
+    making_predictions = PythonOperator(
+        task_id='making_predictions',
+        python_callable=make_predictions
+    ) 
+
+    #task 9
+    evaluing_predictions = PythonOperator(
+        task_id='evaluation',
+        python_callable=eval_predictions
+    )         
+
+    creating_storage_structures >> fetching_data >> preparing_data >> feature_selection >> hyperparam_tuning >> after_optuna >> selecting_features >> making_predictions >> evaluing_predictions
