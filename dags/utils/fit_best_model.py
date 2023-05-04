@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 from utils.files_util import load_files, save_files
 
 def fit_best_model():
-    x_train, x_test, y_train, y_test, best_params = load_files(['selected_x_train', 'selected_x_test', 'y_train', 'y_test', 'exp_info'])
+    x_train, x_val, y_train, y_val, best_params = load_files(['x_train', 'x_val', 'y_train', 'y_val', 'exp_info'])
     model = XGBClassifier(max_depth=best_params['best_xgb_max_depth'].values[0],
                           n_estimators=best_params['best_xgb_n_estimators'].values[0],
                           min_child_weight=best_params['best_xgb_min_child_weight'].values[0],
@@ -24,8 +24,8 @@ def fit_best_model():
                           eval_metric= 'auc')
         
     model.fit(x_train, y_train)
-    y_pred = model.predict(x_test)
-    accuracy = accuracy_score(y_test, y_pred)
+    y_pred = model.predict(x_val)
+    accuracy = accuracy_score(y_val, y_pred)
     accuracy_best_model=pd.DataFrame.from_dict({'accuracy_best_model':[accuracy]})
     accuracy_best_model.name='accuracy_saved_model'
     save_files([accuracy_best_model])

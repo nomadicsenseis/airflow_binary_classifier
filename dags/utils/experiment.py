@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 import optuna
 
+from sklearn import model_selection
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
@@ -30,10 +31,10 @@ def objective(trial):
         'objective': 'binary:logistic',
         'eval_metric': 'auc'
     }
-    x_train, x_test, y_train, y_test = load_files(['selected_x_train', 'selected_x_test', 'y_train', 'y_test'])
+    x_train,y_train,x_val,y_val=load_files(['x_train','y_train','x_val','y_val'])
     # Train the model
     model = XGBClassifier(**params)
-    model.fit(x_train, y_train, eval_set=[(x_test, y_test)], early_stopping_rounds=10, verbose=False)
+    model.fit(x_train, y_train, eval_set=[(x_val, y_val)], early_stopping_rounds=10, verbose=False)
     # Calculate the validation AUC score
     auc = model.evals_result()['validation_0']['auc'][-1]
     # Return the AUC score as the objective value to be maximized
@@ -42,7 +43,19 @@ def objective(trial):
 
 def experiment():
 
-    x_train, x_test, y_train, y_test = load_files(['selected_x_train', 'selected_x_test', 'y_train', 'y_test'])
+    df = load_files(['selected_df_train_val'])[0]
+
+    x_train, x_val, y_train, y_val = model_selection.train_test_split(df.iloc[:,:-1], 
+                                                                        df['churn'], 
+                                                                        test_size=0.3, random_state=42)
+
+    x_train.name='x_train'
+    x_val.name='x_val'
+    y_train.name='y_train'
+    y_val.name='y_val'
+
+    save_files([x_train,x_val,y_train,y_val])
+
     # Set up the study
     study = optuna.create_study(direction='maximize')
 
