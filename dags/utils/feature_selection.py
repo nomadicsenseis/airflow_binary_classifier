@@ -12,7 +12,7 @@ def feature_selection():
   x_train, x_test, y_train, y_test = load_files(['x_train', 'x_test', 'y_train', 'y_test'])
 
   # Create logistic regression model with L1 regularization
-  logreg = LogisticRegressionCV(penalty='l1', solver='saga', cv=5)
+  logreg = LogisticRegressionCV(penalty='l1', solver='saga', cv=2)
   logreg.fit(x_train, y_train)
   
   k=50

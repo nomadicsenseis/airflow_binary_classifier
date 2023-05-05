@@ -1,0 +1,71 @@
+[2023-05-04T23:14:13.964+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline.feature_selection.feature_selecting manual__2023-05-04T23:12:44.158544+00:00 [queued]>
+[2023-05-04T23:14:13.980+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline.feature_selection.feature_selecting manual__2023-05-04T23:12:44.158544+00:00 [queued]>
+[2023-05-04T23:14:13.980+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T23:14:13.989+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-04T23:14:13.989+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T23:14:14.024+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): feature_selection.feature_selecting> on 2023-05-04 23:12:44.158544+00:00
+[2023-05-04T23:14:14.032+0000] {standard_task_runner.py:55} INFO - Started process 25048 to run task
+[2023-05-04T23:14:14.036+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'ml_pipeline', 'feature_selection.feature_selecting', 'manual__2023-05-04T23:12:44.158544+00:00', '--job-id', '716', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline.py', '--cfg-path', '/tmp/tmpn6ib99nj']
+[2023-05-04T23:14:14.039+0000] {standard_task_runner.py:83} INFO - Job 716: Subtask feature_selection.feature_selecting
+[2023-05-04T23:14:14.153+0000] {task_command.py:389} INFO - Running <TaskInstance: ml_pipeline.feature_selection.feature_selecting manual__2023-05-04T23:12:44.158544+00:00 [running]> on host ab75f0ddb6b9
+[2023-05-04T23:14:14.284+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=nomadicsenseis@gmail.com
+AIRFLOW_CTX_DAG_OWNER=Diego Rivera
+AIRFLOW_CTX_DAG_ID=ml_pipeline
+AIRFLOW_CTX_TASK_ID=feature_selection.feature_selecting
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-04T23:12:44.158544+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-04T23:12:44.158544+00:00
+[2023-05-04T23:14:18.088+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/utils/validation.py:993 DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+[2023-05-04T23:14:32.027+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:14:44.669+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:14:57.434+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:15:09.899+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:15:22.560+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:15:37.702+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:15:58.439+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:16:29.241+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354 ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+[2023-05-04T23:16:45.730+0000] {local_task_job.py:277} WARNING - State of this instance has been externally set to queued. Terminating instance.
+[2023-05-04T23:16:45.740+0000] {process_utils.py:133} INFO - Sending Signals.SIGTERM to group 25048. PIDs of all processes in the group: [25048]
+[2023-05-04T23:16:45.741+0000] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 25048
+[2023-05-04T23:16:52.262+0000] {taskinstance.py:1488} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-05-04T23:16:52.278+0000] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/utils/feature_selection.py", line 16, in feature_selection
+    logreg.fit(x_train, y_train)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sklearn/linear_model/_logistic.py", line 2182, in fit
+    for label in iter_encoded_labels
+  File "/home/airflow/.local/lib/python3.7/site-packages/joblib/parallel.py", line 1085, in __call__
+    if self.dispatch_one_batch(iterator):
+  File "/home/airflow/.local/lib/python3.7/site-packages/joblib/parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "/home/airflow/.local/lib/python3.7/site-packages/joblib/parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "/home/airflow/.local/lib/python3.7/site-packages/joblib/_parallel_backends.py", line 208, in apply_async
+    result = ImmediateResult(func)
+  File "/home/airflow/.local/lib/python3.7/site-packages/joblib/_parallel_backends.py", line 597, in __init__
+    self.results = batch()
+  File "/home/airflow/.local/lib/python3.7/site-packages/joblib/parallel.py", line 289, in __call__
+    for func, args, kwargs in self.items]
+  File "/home/airflow/.local/lib/python3.7/site-packages/joblib/parallel.py", line 289, in <listcomp>
+    for func, args, kwargs in self.items]
+  File "/home/airflow/.local/lib/python3.7/site-packages/sklearn/utils/fixes.py", line 216, in __call__
+    return self.function(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sklearn/linear_model/_logistic.py", line 1079, in _log_reg_scoring_path
+    sample_weight=sample_weight,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sklearn/linear_model/_logistic.py", line 878, in _logistic_regression_path
+    is_saga=(solver == "saga"),
+  File "/home/airflow/.local/lib/python3.7/site-packages/sklearn/linear_model/_sag.py", line 348, in sag_solver
+    verbose,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1490, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2023-05-04T23:17:00.598+0000] {taskinstance.py:1332} INFO - Marking task as FAILED. dag_id=ml_pipeline, task_id=feature_selection.feature_selecting, execution_date=20230504T231244, start_date=20230504T231649, end_date=20230504T231700
+[2023-05-04T23:17:00.831+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 716 for task feature_selection.feature_selecting (Task received SIGTERM signal; 25048)
+[2023-05-04T23:17:00.861+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=25048, status='terminated', exitcode=1, started='23:14:13') (25048) terminated with exit code 1

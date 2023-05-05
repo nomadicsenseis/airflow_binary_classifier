@@ -50,11 +50,6 @@ with DAG(
     making_predictions = PythonOperator(
         task_id='making_predictions',
         python_callable=make_predictions
-    ) 
-
-    evaluing_predictions = PythonOperator(
-        task_id='evaluation',
-        python_callable=eval_predictions
     )         
 
-    fetching_data >> preprocessing  >> selecting_features >> making_predictions >> evaluing_predictions
+    fetching_data >> preprocessing  >> selecting_features >> making_predictions 
