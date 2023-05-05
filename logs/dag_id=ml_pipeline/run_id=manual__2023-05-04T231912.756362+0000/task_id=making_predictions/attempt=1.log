@@ -1,0 +1,24 @@
+[2023-05-04T23:28:46.269+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline.making_predictions manual__2023-05-04T23:19:12.756362+00:00 [queued]>
+[2023-05-04T23:28:46.283+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline.making_predictions manual__2023-05-04T23:19:12.756362+00:00 [queued]>
+[2023-05-04T23:28:46.284+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T23:28:46.324+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-04T23:28:46.324+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T23:28:46.349+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): making_predictions> on 2023-05-04 23:19:12.756362+00:00
+[2023-05-04T23:28:46.356+0000] {standard_task_runner.py:55} INFO - Started process 25524 to run task
+[2023-05-04T23:28:46.360+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'ml_pipeline', 'making_predictions', 'manual__2023-05-04T23:19:12.756362+00:00', '--job-id', '732', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline.py', '--cfg-path', '/tmp/tmphfy0k93j']
+[2023-05-04T23:28:46.362+0000] {standard_task_runner.py:83} INFO - Job 732: Subtask making_predictions
+[2023-05-04T23:28:46.446+0000] {task_command.py:389} INFO - Running <TaskInstance: ml_pipeline.making_predictions manual__2023-05-04T23:19:12.756362+00:00 [running]> on host ab75f0ddb6b9
+[2023-05-04T23:28:46.588+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=nomadicsenseis@gmail.com
+AIRFLOW_CTX_DAG_OWNER=Diego Rivera
+AIRFLOW_CTX_DAG_ID=ml_pipeline
+AIRFLOW_CTX_TASK_ID=making_predictions
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-04T23:19:12.756362+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-04T23:19:12.756362+00:00
+[2023-05-04T23:28:47.018+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-05-04T23:28:47.030+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=ml_pipeline, task_id=making_predictions, execution_date=20230504T231912, start_date=20230504T232846, end_date=20230504T232847
+[2023-05-04T23:28:47.095+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-05-04T23:28:47.153+0000] {taskinstance.py:2596} INFO - 1 downstream tasks scheduled from follow-on schedule check

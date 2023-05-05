@@ -1,0 +1,24 @@
+[2023-05-04T22:49:16.453+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline.feature_selection.saving_clean_batch_data manual__2023-05-04T22:47:39.273046+00:00 [queued]>
+[2023-05-04T22:49:16.468+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline.feature_selection.saving_clean_batch_data manual__2023-05-04T22:47:39.273046+00:00 [queued]>
+[2023-05-04T22:49:16.469+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T22:49:16.474+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-04T22:49:16.475+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-04T22:49:16.514+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): feature_selection.saving_clean_batch_data> on 2023-05-04 22:47:39.273046+00:00
+[2023-05-04T22:49:16.521+0000] {standard_task_runner.py:55} INFO - Started process 24087 to run task
+[2023-05-04T22:49:16.525+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'ml_pipeline', 'feature_selection.saving_clean_batch_data', 'manual__2023-05-04T22:47:39.273046+00:00', '--job-id', '696', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline.py', '--cfg-path', '/tmp/tmpg3ehtspm']
+[2023-05-04T22:49:16.527+0000] {standard_task_runner.py:83} INFO - Job 696: Subtask feature_selection.saving_clean_batch_data
+[2023-05-04T22:49:16.614+0000] {task_command.py:389} INFO - Running <TaskInstance: ml_pipeline.feature_selection.saving_clean_batch_data manual__2023-05-04T22:47:39.273046+00:00 [running]> on host ab75f0ddb6b9
+[2023-05-04T22:49:16.717+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=nomadicsenseis@gmail.com
+AIRFLOW_CTX_DAG_OWNER=Diego Rivera
+AIRFLOW_CTX_DAG_ID=ml_pipeline
+AIRFLOW_CTX_TASK_ID=feature_selection.saving_clean_batch_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-04T22:47:39.273046+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-04T22:47:39.273046+00:00
+[2023-05-04T22:54:27.094+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-05-04T22:54:27.110+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=ml_pipeline, task_id=feature_selection.saving_clean_batch_data, execution_date=20230504T224739, start_date=20230504T224916, end_date=20230504T225427
+[2023-05-04T22:54:28.014+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-05-04T22:54:28.081+0000] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -54,11 +54,17 @@ def preprocess_data():
     df.name="clean_df"
     save_files([df])
 
-    x_train, x_test, y_train, y_test = model_selection.train_test_split(df.iloc[:,:-1], 
+    x, x_val, y, y_val = model_selection.train_test_split(df.drop(['Customer_ID','churn'], axis=1), 
                                                                         df['churn'], 
                                                                         test_size=test_size)
+
+    x_train,x_test,y_train,y_test=model_selection.train_test_split(x, y, test_size=test_size)
+
     x_train.name = 'x_train'
+    x_val.name= 'x_val'
     x_test.name = 'x_test'
     y_train.name = 'y_train'
+    y_val.name='y_val'
     y_test.name = 'y_test'
-    save_files([x_train, x_test, y_train, y_test])
+    save_files([x_train, x_val, x_test, y_train, y_val, y_test])
+

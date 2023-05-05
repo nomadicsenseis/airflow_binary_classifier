@@ -1,0 +1,10 @@
+[2023-05-04T23:17:00.934+0000] {task_command.py:389} INFO - Running <TaskInstance: ml_pipeline.feature_selection.feature_selecting manual__2023-05-04T23:12:44.158544+00:00 [failed]> on host ab75f0ddb6b9
+[2023-05-04T23:17:01.392+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=nomadicsenseis@gmail.com
+AIRFLOW_CTX_DAG_OWNER=Diego Rivera
+AIRFLOW_CTX_DAG_ID=ml_pipeline
+AIRFLOW_CTX_TASK_ID=feature_selection.feature_selecting
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-04T23:12:44.158544+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-04T23:12:44.158544+00:00
+[2023-05-04T23:17:05.975+0000] {taskinstance.py:1488} ERROR - Received SIGTERM. Terminating subprocesses.

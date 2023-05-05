@@ -28,16 +28,16 @@ def objective(trial):
         'reg_lambda': trial.suggest_float('reg_lambda', 0, 1),
         'tree_method': 'auto',  # Use GPU for faster training if available
         'objective': 'binary:logistic',
-        'eval_metric': 'auc'
+        'eval_metric': 'error'
     }
     x_train, x_test, y_train, y_test = load_files(['selected_x_train', 'selected_x_test', 'y_train', 'y_test'])
     # Train the model
     model = XGBClassifier(**params)
     model.fit(x_train, y_train, eval_set=[(x_test, y_test)], early_stopping_rounds=10, verbose=False)
     # Calculate the validation AUC score
-    auc = model.evals_result()['validation_0']['auc'][-1]
+    error = model.evals_result()['validation_0']['error'][-1]
     # Return the AUC score as the objective value to be maximized
-    return auc
+    return error
 
 
 def experiment():
@@ -47,7 +47,7 @@ def experiment():
     study = optuna.create_study(direction='maximize')
 
     # Optimize the hyperparameters
-    study.optimize(objective, n_trials=100)
+    study.optimize(objective, n_trials=20)
 
     # Print the best hyperparameters and corresponding AUC score
     best_params = study.best_params
@@ -60,14 +60,14 @@ def experiment():
     best_xgb_learning_rate=best_params["learning_rate"]
     best_xgb_subsample=best_params["subsample"]
     best_xgb_colsample_bytree=best_params["colsample_bytree"]
-    best_auc = study.best_value
+    best_accuracy = 1-study.best_value
     
 
     # save esperiments information for historical persistence
     now = datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
 
     exp_info = pd.DataFrame([[now,
-                              best_auc,
+                              best_accuracy,
                               best_xgb_n_estimators,
                               best_xgb_max_depth,
                               best_xgb_min_child_weight,
@@ -78,7 +78,7 @@ def experiment():
                               best_xgb_reg_alpha,
                               best_xgb_reg_lambda]],
                             columns=['experiment_datetime',
-                                     'best_auc',
+                                     'best_accuracy',
                                      'best_xgb_n_estimators',
                                      'best_xgb_max_depth',
                                      'best_xgb_min_child_weight',

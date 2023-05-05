@@ -14,7 +14,9 @@ from utils.track_experiments_info import track_experiments_info
 from utils.fit_best_model import fit_best_model
 from utils.save_batch_data import save_batch_data
 from utils.save_clean_batch_data import save_clean_batch_data
-
+from utils.select_features import select_features
+from utils.make_predictions import make_predictions
+from utils.eval_predictions import eval_predictions
 
 default_args= {
     'owner': 'Diego Rivera',
@@ -26,20 +28,20 @@ default_args= {
 with DAG(
     "ml_pipeline",
     description='End-to-end ML pipeline example',
-    schedule_interval='@daily',
+    schedule_interval='@monthly',
     default_args=default_args, 
     catchup=False) as dag:
 
     
-    # task: 1
+    # task: 1 
     with TaskGroup('creating_storage_structures') as creating_storage_structures:
 
         # task: 1.1
-        #creating_experiment_tracking_table = PostgresOperator(
-         #   task_id="creating_experiment_tracking_table",
-          #  postgres_conn_id='postgres_default',
-           # sql='sql/create_experiments.sql'
-        #)
+        creating_experiment_tracking_table = PostgresOperator(
+           task_id="creating_experiment_tracking_table",
+           postgres_conn_id='postgres_default',
+           sql='sql/create_experiments.sql'
+        )
 
         # task: 1.2
         creating_batch_data_table = PostgresOperator(
@@ -77,17 +79,18 @@ with DAG(
             python_callable=save_batch_data
         )
 
-        # task: 3.3
+    with TaskGroup('feature_selection') as log_feature_selection:
+
+        #task: 4.1
         saving_clean_batch_data = PythonOperator(
             task_id='saving_clean_batch_data',
             python_callable=save_clean_batch_data
         )
-
-    # task: 4
-    feature_selection = PythonOperator(
-        task_id='feature_selection',
-        python_callable=feature_selection
-    )
+        # task: 4.2
+        feature_selecting = PythonOperator(
+            task_id='feature_selecting',
+            python_callable=feature_selection
+        )
 
     
         
@@ -102,15 +105,32 @@ with DAG(
 
         # =======
         # task: 6.1        
-        #saving_results = PythonOperator(
-         #   task_id='saving_results',
-          #  python_callable=track_experiments_info
-        #)
+        saving_results = PythonOperator(
+           task_id='saving_results',
+           python_callable=track_experiments_info
+        )
 
         # task: 6.2
         fitting_best_model = PythonOperator(
             task_id='fitting_best_model',
             python_callable=fit_best_model
-        )    
+        )   
 
-    creating_storage_structures >> fetching_data >> preparing_data >> feature_selection >> hyperparam_tuning >> after_optuna
+    #task 7
+    selecting_features = PythonOperator(
+        task_id='selecting_features',
+        python_callable=select_features
+    )
+    #task 8
+    making_predictions = PythonOperator(
+        task_id='making_predictions',
+        python_callable=make_predictions
+    ) 
+
+    #task 9
+    evaluing_predictions = PythonOperator(
+        task_id='evaluation',
+        python_callable=eval_predictions
+    )         
+
+    creating_storage_structures >> fetching_data >> preparing_data >> log_feature_selection >> hyperparam_tuning >> after_optuna >> selecting_features >> making_predictions >> evaluing_predictions

@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS experiments (
     experiment_id SERIAL PRIMARY KEY,
     experiment_datetime VARCHAR NOT NULL,
-    best_auc NUMERIC NOT NULL,
+    best_accuracy NUMERIC NOT NULL,
     best_xgb_n_estimators INTEGER NOT NULL,
     best_xgb_max_depth INTEGER NOT NULL,
     best_xgb_min_child_weight INTEGER NOT NULL,
