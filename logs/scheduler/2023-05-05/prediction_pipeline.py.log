@@ -6585,3 +6585,31 @@
 [2023-05-05T08:15:24.267+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:15:24.265+0000] {dag.py:2705} INFO - Sync 1 DAGs
 [2023-05-05T08:15:24.309+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:15:24.308+0000] {dag.py:3456} INFO - Setting next_dagrun for prediction_pipeline to 2023-05-05T00:00:00+00:00, run_after=2023-05-06T00:00:00+00:00
 [2023-05-05T08:15:24.398+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/prediction_pipeline.py took 1.459 seconds
+[2023-05-05T08:15:54.928+0000] {processor.py:153} INFO - Started process (PID=12516) to work on /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:15:54.930+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/prediction_pipeline.py for tasks to queue
+[2023-05-05T08:15:54.932+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:15:54.931+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:15:56.263+0000] {processor.py:753} INFO - DAG(s) dict_keys(['prediction_pipeline']) retrieved from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:15:56.299+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:15:56.298+0000] {dag.py:2705} INFO - Sync 1 DAGs
+[2023-05-05T08:15:56.343+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:15:56.343+0000] {dag.py:3456} INFO - Setting next_dagrun for prediction_pipeline to 2023-05-05T00:00:00+00:00, run_after=2023-05-06T00:00:00+00:00
+[2023-05-05T08:15:56.485+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/prediction_pipeline.py took 1.562 seconds
+[2023-05-05T08:16:27.107+0000] {processor.py:153} INFO - Started process (PID=12535) to work on /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:16:27.109+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/prediction_pipeline.py for tasks to queue
+[2023-05-05T08:16:27.113+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:16:27.113+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:16:28.676+0000] {processor.py:753} INFO - DAG(s) dict_keys(['prediction_pipeline']) retrieved from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:16:28.711+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:16:28.710+0000] {dag.py:2705} INFO - Sync 1 DAGs
+[2023-05-05T08:16:28.754+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:16:28.754+0000] {dag.py:3456} INFO - Setting next_dagrun for prediction_pipeline to 2023-05-05T00:00:00+00:00, run_after=2023-05-06T00:00:00+00:00
+[2023-05-05T08:16:28.795+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/prediction_pipeline.py took 1.693 seconds
+[2023-05-05T08:16:59.188+0000] {processor.py:153} INFO - Started process (PID=12550) to work on /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:16:59.190+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/prediction_pipeline.py for tasks to queue
+[2023-05-05T08:16:59.191+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:16:59.191+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:17:00.332+0000] {processor.py:753} INFO - DAG(s) dict_keys(['prediction_pipeline']) retrieved from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:17:00.365+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:17:00.364+0000] {dag.py:2705} INFO - Sync 1 DAGs
+[2023-05-05T08:17:00.407+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:17:00.407+0000] {dag.py:3456} INFO - Setting next_dagrun for prediction_pipeline to 2023-05-05T00:00:00+00:00, run_after=2023-05-06T00:00:00+00:00
+[2023-05-05T08:17:00.522+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/prediction_pipeline.py took 1.340 seconds
+[2023-05-05T08:17:31.132+0000] {processor.py:153} INFO - Started process (PID=12569) to work on /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:17:31.134+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/prediction_pipeline.py for tasks to queue
+[2023-05-05T08:17:31.135+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:17:31.135+0000] {dagbag.py:532} INFO - Filling up the DagBag from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:17:32.235+0000] {processor.py:753} INFO - DAG(s) dict_keys(['prediction_pipeline']) retrieved from /opt/airflow/dags/prediction_pipeline.py
+[2023-05-05T08:17:32.268+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:17:32.268+0000] {dag.py:2705} INFO - Sync 1 DAGs
+[2023-05-05T08:17:32.310+0000] {logging_mixin.py:137} INFO - [2023-05-05T08:17:32.310+0000] {dag.py:3456} INFO - Setting next_dagrun for prediction_pipeline to 2023-05-05T00:00:00+00:00, run_after=2023-05-06T00:00:00+00:00
+[2023-05-05T08:17:32.430+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/prediction_pipeline.py took 1.306 seconds
