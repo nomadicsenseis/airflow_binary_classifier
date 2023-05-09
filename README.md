@@ -67,7 +67,6 @@ pd.read_sql('SELECT * FROM experiments', engine)
 1. Airflow is an orchestrator. Ideally, it should not perform the tasks, but simply wrapping them around a logical structure allowing scheduling, monitoring and scaling.
 2. We made use of the Local Executor to achieve a working local environment for testing purposes. Nevertheless, in order to enable scaling and pushing tasks to worker nodes, other types of executors should be used instead, such as the Celery Executor or Kubernetes Executor.
 3. We stored data in the native PostgreSQL natively available and associated with the Airflow's metastore. This allowed to create a working example without specifying further services. Nevertheless, separation of duties and life cycle decoupling would require to store pipeline's data externally to the orchestrator's components.
-4. We installed the needed dependencies by leveraging the \_PIP_ADDITIONAL_REQUIREMENTS configuration property. Although convenient for testing purposes, it would not be recommended for production systems. [Custom images](https://airflow.apache.org/docs/docker-stack/build.html) should be built instead.
-5. In a real world scenario involving large datasets, Python and Pandas (as well as csv files) would not be the most favourable approach towards data manipulation, whereas Spark is preferable.
+4. In a real world scenario involving large datasets, Python and Pandas (as well as csv files) would not be the most favourable approach towards data manipulation, whereas Spark is preferable.
 
 
